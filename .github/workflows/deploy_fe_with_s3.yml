@@ -39,4 +39,12 @@ jobs:
       - name: clear s3 bucket
         run: aws s3 rm s3://www.araboka.store/ --recursive
 
+        # 현재 ./dist 폴더에 있는걸 s3의 www.araboka.store 로 cp(copy)
+      - name: deploy to s3
+        run: aws s3 cp ./dist s3://www.araboka.store/ --recursive
+
+      - name: invalidate cloudfront caches
+        run: aws cloudfront create-invalidation --distribution-id E3H33FXL2WSLGI --paths "/*"
+
+
 
