@@ -44,5 +44,5 @@ jobs:
         run: aws s3 cp ./dist s3://www.araboka.store/ --recursive
 
       - name: invalidate cloudfront caches
-        run: aws cloudfront create-invalidation --distribution-id E3H33FXL2WSLGI --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id E1TVKZJPH8V9SZ --paths "/*"
 
